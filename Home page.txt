@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+
+class Homepage extends StatefulWidget {
+  const Homepage({ Key? key }) : super(key: key);
+
+  @override
+  _HomepageState createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        actions: [
+           Icon(Icons.shopping_bag,
+           color: Colors.white,
+           ),
+           SizedBox(
+width: MediaQuery.of(context).size.width*0.1,
+           ),
+          Icon(Icons.favorite,
+          color: Colors.white,
+          ),
+        ],
+ title: Center(child: Text('Homepage'),
+
+  ),
+    ),
+    drawer: Drawer(
+      child: Column(
+        children: [
+          DrawerHeader(
+padding: EdgeInsets.zero,
+            child: UserAccountsDrawerHeader(
+              accountName: Text('Musab farooq'),
+              accountEmail: Text('musabfarooq123@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREIjuRTxUguVtEjp3mSeMKs4nCLL2eI-aRWw&usqp=CAU'),
+              ),
+            ),
+
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('logout'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+            
+          ),
+          ListTile(
+              leading: Icon(Icons.shopping_cart),
+              title: Text('Cart'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.favorite),
+              title: Text('Favourite'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.error),
+              title: Text('About'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ), 
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            title: Text('Search'),
+            backgroundColor: Colors.red,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text('Profile'),
+            backgroundColor: Colors.green,
+          ),
+      
+        ],
+      
+      ),
+     
+    );
+ 
+  }
+
+}
